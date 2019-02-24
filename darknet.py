@@ -309,9 +309,6 @@ class Darknet(nn.Module):
         modules = self.blocks[1:]
         outputs = {}   #We cache the outputs for the route layer
         
-        print(x.size())
-        print(x.permute(0,2,3,1))
-
         write = 0
         for i in range(len(modules)):        
             
@@ -361,6 +358,9 @@ class Darknet(nn.Module):
                 
                 #Output the result
                 x = x.data
+                print("Yolo ", i " has input ")
+                print(x.permute(0,2,3,1).size())
+                print(x.permute(0,2,3,1))
                 x = predict_transform(x, inp_dim, anchors, num_classes, CUDA)
                 
                 if type(x) == int:
