@@ -146,6 +146,8 @@ if __name__ ==  '__main__':
         os.makedirs(args.det)
         
     load_batch = time.time()
+
+    print("Image list ", imlist)
     
     batches = list(map(prep_image, imlist, [inp_dim for x in range(len(imlist))]))
     im_batches = [x[0] for x in batches]
