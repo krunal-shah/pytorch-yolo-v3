@@ -319,15 +319,25 @@ class Darknet(nn.Module):
 
             if module_type == "convolutional" or module_type == "upsample" or module_type == "maxpool":
 
-                if i in [81, 93, 105]:
+                if i == 0:
                     print("Input to YOLO ", i)
                     print(x.permute(0, 2, 3, 1).size())
                     print(x.permute(0, 2, 3, 1))
+
+                # if i in [81, 93, 105]:
+                #     print("Input to YOLO ", i)
+                #     print(x.permute(0, 2, 3, 1).size())
+                #     print(x.permute(0, 2, 3, 1))
                     # print("Weights to layer ", i)
                     # print(self.module_list[i][0].weight.permute(2,3,1,0).size())
                     # print(self.module_list[i][0].weight.permute(2,3,1,0))
                 
                 x = self.module_list[i](x)
+
+                if i == 0:
+                    print("Output of YOLO ", i)
+                    print(x.permute(0, 2, 3, 1).size())
+                    print(x.permute(0, 2, 3, 1))
                 outputs[i] = x
 
                 
