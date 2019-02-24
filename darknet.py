@@ -358,7 +358,7 @@ class Darknet(nn.Module):
                 
                 #Output the result
                 x = x.data
-                print("Yolo ", i " has input ")
+                print("Yolo ", i, " has input ")
                 print(x.permute(0,2,3,1).size())
                 print(x.permute(0,2,3,1))
                 x = predict_transform(x, inp_dim, anchors, num_classes, CUDA)
