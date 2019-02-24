@@ -309,6 +309,8 @@ class Darknet(nn.Module):
         modules = self.blocks[1:]
         outputs = {}   #We cache the outputs for the route layer
         
+        print(x.size())
+        print(x)
         
         write = 0
         for i in range(len(modules)):        
