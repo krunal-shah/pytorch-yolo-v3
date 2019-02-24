@@ -323,6 +323,7 @@ class Darknet(nn.Module):
                     # print("Input to YOLO ", i)
                     # print(x.permute(0, 2, 3, 1).size())
                     # print(x.permute(0, 2, 3, 1))
+                    print("Weights to layer ", i)
                     print(self.module_list[i].weight.permute(2,3,1,0).size())
                     print(self.module_list[i].weight.permute(2,3,1,0))
                 
