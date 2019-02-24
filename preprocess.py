@@ -40,10 +40,9 @@ def prep_image(img, inp_dim):
     print(orig_im)
     dim = orig_im.shape[1], orig_im.shape[0]
     img = (letterbox_image(orig_im, (inp_dim, inp_dim)))
-    print("Resized image ")
-    print(img)
     img_ = img[:,:,::-1].transpose((2,0,1)).copy()
     img_ = torch.from_numpy(img_).float().div(255.0).unsqueeze(0)
+    print("Preprocessed Image ", img_)
     return img_, orig_im, dim
 
 def prep_image_pil(img, network_dim):

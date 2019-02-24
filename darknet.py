@@ -310,8 +310,8 @@ class Darknet(nn.Module):
         outputs = {}   #We cache the outputs for the route layer
         
         print(x.size())
-        print(x)
-        
+        print(x.permute(0,2,3,1))
+
         write = 0
         for i in range(len(modules)):        
             

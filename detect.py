@@ -176,7 +176,7 @@ if __name__ ==  '__main__':
     
 
     write = False
-    model(get_test_input(inp_dim, CUDA), CUDA)
+    # model(get_test_input(inp_dim, CUDA), CUDA)
     
     start_det_loop = time.time()
     
@@ -185,7 +185,6 @@ if __name__ ==  '__main__':
     
     
     for batch in im_batches:
-        print("hello in here")
         #load the image 
         start = time.time()
         if CUDA:
