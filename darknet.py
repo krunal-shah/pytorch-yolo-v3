@@ -320,7 +320,7 @@ class Darknet(nn.Module):
             if module_type == "convolutional" or module_type == "upsample" or module_type == "maxpool":
 
                 if i in [81, 93, 106]:
-                    print("Input to YOLO ")
+                    print("Input to YOLO ", i)
                     print(x.permute(0, 2, 3, 1).size())
                     print(x.permute(0, 2, 3, 1))
                 
