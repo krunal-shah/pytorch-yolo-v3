@@ -324,8 +324,8 @@ class Darknet(nn.Module):
                     # print(x.permute(0, 2, 3, 1).size())
                     # print(x.permute(0, 2, 3, 1))
                     print("Weights to layer ", i)
-                    print(self.module_list[i].weight.permute(2,3,1,0).size())
-                    print(self.module_list[i].weight.permute(2,3,1,0))
+                    print(self.module_list[i][0].weight.permute(2,3,1,0).size())
+                    print(self.module_list[i][0].weight.permute(2,3,1,0))
                 
                 x = self.module_list[i](x)
                 outputs[i] = x
