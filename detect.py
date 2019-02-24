@@ -185,6 +185,7 @@ if __name__ ==  '__main__':
     
     
     for batch in im_batches:
+        print("hello in here")
         #load the image 
         start = time.time()
         if CUDA:
