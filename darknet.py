@@ -169,6 +169,8 @@ def create_modules(blocks):
                 bias = True
                 
             filters= int(x["filters"])
+            if filters == 255:
+                print("255 at module index ", index)
             padding = int(x["pad"])
             kernel_size = int(x["size"])
             stride = int(x["stride"])
@@ -313,7 +315,14 @@ class Darknet(nn.Module):
         for i in range(len(modules)):        
             
             module_type = (modules[i]["type"])
+            
+
             if module_type == "convolutional" or module_type == "upsample" or module_type == "maxpool":
+
+                if i in [81, 93, 106]:
+                    print("Input to YOLO ")
+                    print(x.permute(0, 2, 3, 1).size())
+                    print(x.permute(0, 2, 3, 1))
                 
                 x = self.module_list[i](x)
                 outputs[i] = x
@@ -358,9 +367,9 @@ class Darknet(nn.Module):
                 
                 #Output the result
                 x = x.data
-                print("Yolo ", i, " has input ")
-                print(x.permute(0,2,3,1).size())
-                print(x.permute(0,2,3,1))
+                # print("Yolo ", i, " has input ")
+                # print(x.permute(0,2,3,1).size())
+                # print(x.permute(0,2,3,1))
                 x = predict_transform(x, inp_dim, anchors, num_classes, CUDA)
                 
                 if type(x) == int:
